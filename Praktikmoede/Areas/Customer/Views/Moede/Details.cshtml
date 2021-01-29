@@ -1,0 +1,46 @@
+﻿@model Praktikmoede.ViewModels.MoedeDetails
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<br />
+<div>Titel: @Model.moede.topic.ToString()</div>
+<br />
+<div>Dato: @Model.moede.dateFrom.ToString()</div>
+<br />
+<div class="row">
+    <div class="col-6">Deltagerliste</div>
+    <div class="col-6">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> &nbsp; Create New</a>
+    </div>
+    <br />
+    <div class="col-6">
+        <table class="table-striped boarder">
+            <tr>
+                <th>Møde</th>
+                <th>Initialer</th>
+                <th>Navn</th>
+            </tr>
+            @foreach (var deltager in Model.moedeDeltagere)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => deltager.Moede.topic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => deltager.Initials)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => deltager.Name)
+                    </td>
+                    <td>
+                        <partial name="_TableButtonPartial" model="deltager.Id" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+</div>

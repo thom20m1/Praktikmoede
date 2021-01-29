@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Moede>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<br/>
+<div>
+    <div class="row">
+        <div class="col-6">Møde Liste</div>
+        <div class="col-6">
+            <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> &nbsp; Create New</a>
+        </div>
+        <br/>
+        <div class="col-6">
+            <table class="table-striped boarder">
+            <tr>
+                <th>Dato</th>
+                <th>Emne</th>
+            </tr>
+            @foreach(var moede in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => moede.dateFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => moede.topic)
+                </td>
+                <td>
+                    <partial name="_TableButtonPartial" model="moede.Id"/>
+                </td>
+            </tr>
+
+            }
+            </table>
+        </div>
+    </div>
+</div>

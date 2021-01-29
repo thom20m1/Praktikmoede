@@ -1,0 +1,40 @@
+﻿@model Moede
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-info">Create Moede</h2>
+
+<br />
+<form method="post" asp-action="Create">
+<div class="border backgroundWhite">
+    <div asp-validation-summary="ModelOnly" class="text-danger" />
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="topic" class="col-form-label"></label>
+        </div>
+        <div class="col-5">
+            <input asp-for="topic" class="form-control" />
+        </div>
+        <span asp-validation-for="topic" class="text-danger"></span>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="dateFrom" class="col-form-label"></label>
+        </div>
+        <div class="col-5">
+            <input asp-for="dateFrom" class="form-control" />
+        </div>
+        <span asp-validation-for="dateFrom" class="text-danger"></span>
+    </div>
+    <div class="form-group row">
+        <div class="col-5 offset-2">
+           <partial name="_CreateButtonPartial"/>
+        </div>
+    </div>
+</div>
+    </form>
+<br />
+
+
